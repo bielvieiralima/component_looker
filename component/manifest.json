@@ -1,0 +1,17 @@
+{
+  "dataStudio": {
+    "name": "Botão Filtro CDHU",
+    "description": "Botão que aplica ou remove o filtro pela modalidade CDHU",
+    "createTime": "2025-04-10T13:06:31.000Z",
+    "updateTime": "2025-04-10T13:06:31.000Z",
+    "sources": ["https://puzzle-tabby-devourer.glitch.me/index.html"],
+    "supportsInteractivity": true,
+    "fields": {
+      "modalidade": {
+        "id": "modalidade",
+        "name": "Modalidade",
+        "type": "TEXT"
+      }
+    }
+  }
+}
