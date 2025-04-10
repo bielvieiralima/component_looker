@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #filtro-btn {
+        padding: 10px 20px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      #filtro-btn.ativo {
+        background-color: #cc0000;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="filtro-btn">Filtrar por CDHU</button>
+
+    <script>
+      let filtroAtivo = false;
+
+      const dscc = window.dscc;
+
+      const aplicarFiltro = (valor) => {
+        dscc.sendInteraction({
+          interactionType: dscc.InteractionType.FILTER,
+          data: {
+            modalidade: [valor],
+          },
+        });
+      };
+
+      const removerFiltro = () => {
+        dscc.sendInteraction({
+          interactionType: dscc.InteractionType.FILTER,
+          data: {
+            modalidade: [],
+          },
+        });
+      };
+
+      document.getElementById("filtro-btn").addEventListener("click", () => {
+        filtroAtivo = !filtroAtivo;
+        const btn = document.getElementById("filtro-btn");
+        if (filtroAtivo) {
+          aplicarFiltro("CDHU");
+          btn.classList.add("ativo");
+          btn.innerText = "Remover filtro CDHU";
+        } else {
+          removerFiltro();
+          btn.classList.remove("ativo");
+          btn.innerText = "Filtrar por CDHU";
+        }
+      });
+    </script>
+  </body>
+</html>
